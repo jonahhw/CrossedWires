@@ -180,20 +180,27 @@ animations = [ {
 "name": "Walk",
 "speed": 26.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 36 ), ExtResource( 3 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 43 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 26.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 6 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 2 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
 "loop": false,
 "name": "Punch",
+"speed": 26.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 36 ), ExtResource( 3 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 43 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 26.0
 } ]
 
 [node name="Mech" type="KinematicBody2D"]
 position = Vector2( -8, 0 )
 script = ExtResource( 73 )
+accelerationX = 1000.0
+maxSpeedX = 150.0
+friction = 600.0
+jumpSpeed = 300
+coyoteTime = 0.05
+gravitySpeed = 2000
+maxSpeedY = 1000
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2( 8, -11 )
@@ -208,8 +215,6 @@ material = SubResource( 5 )
 position = Vector2( -5, -32 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 2
-playing = true
 centered = false
 
 [node name="Sprite" type="Sprite" parent="CharacterSprite"]
