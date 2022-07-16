@@ -1,0 +1,212 @@
+[gd_scene load_steps=79 format=2]
+
+[ext_resource path="res://Assets/mech-animation/mech-punch-0056.png" type="Texture" id=1]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0054.png" type="Texture" id=2]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0018.png" type="Texture" id=3]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0009.png" type="Texture" id=4]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0008.png" type="Texture" id=5]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0051.png" type="Texture" id=6]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0007.png" type="Texture" id=7]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0016.png" type="Texture" id=8]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0010.png" type="Texture" id=9]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0001.png" type="Texture" id=10]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0013.png" type="Texture" id=11]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0048.png" type="Texture" id=12]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0035.png" type="Texture" id=13]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0005.png" type="Texture" id=14]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0000.png" type="Texture" id=15]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0003.png" type="Texture" id=16]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0015.png" type="Texture" id=17]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0029.png" type="Texture" id=18]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0014.png" type="Texture" id=19]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0055.png" type="Texture" id=20]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0012.png" type="Texture" id=21]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0034.png" type="Texture" id=22]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0004.png" type="Texture" id=23]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0006.png" type="Texture" id=24]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0002.png" type="Texture" id=25]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0060.png" type="Texture" id=26]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0059.png" type="Texture" id=27]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0025.png" type="Texture" id=28]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0033.png" type="Texture" id=29]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0053.png" type="Texture" id=30]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0052.png" type="Texture" id=31]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0024.png" type="Texture" id=32]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0011.png" type="Texture" id=33]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0061.png" type="Texture" id=34]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0049.png" type="Texture" id=35]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0017.png" type="Texture" id=36]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0022.png" type="Texture" id=37]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0026.png" type="Texture" id=38]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0019.png" type="Texture" id=39]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0021.png" type="Texture" id=40]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0020.png" type="Texture" id=41]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0057.png" type="Texture" id=42]
+[ext_resource path="res://Assets/mech-animation/mech-idle-0023.png" type="Texture" id=43]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0028.png" type="Texture" id=44]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0058.png" type="Texture" id=45]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0050.png" type="Texture" id=46]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0027.png" type="Texture" id=47]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0030.png" type="Texture" id=48]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0062.png" type="Texture" id=49]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0063.png" type="Texture" id=50]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0064.png" type="Texture" id=51]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0065.png" type="Texture" id=52]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0066.png" type="Texture" id=53]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0067.png" type="Texture" id=54]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0068.png" type="Texture" id=55]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0069.png" type="Texture" id=56]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0070.png" type="Texture" id=57]
+[ext_resource path="res://Assets/mech-animation/mech-punch-0071.png" type="Texture" id=58]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0037.png" type="Texture" id=59]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0032.png" type="Texture" id=60]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0040.png" type="Texture" id=61]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0039.png" type="Texture" id=62]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0031.png" type="Texture" id=63]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0041.png" type="Texture" id=64]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0038.png" type="Texture" id=65]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0036.png" type="Texture" id=66]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0042.png" type="Texture" id=67]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0043.png" type="Texture" id=68]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0044.png" type="Texture" id=69]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0045.png" type="Texture" id=70]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0046.png" type="Texture" id=71]
+[ext_resource path="res://Assets/mech-animation/mech-walk-0047.png" type="Texture" id=72]
+[ext_resource path="res://Mech.gd" type="Script" id=73]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.0
+height = 12.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.5, 1 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+// based on this example: https://godotshaders.com/shader/palette-swap-no-recolor-recolor/
+
+uniform bool swap = false;
+
+uniform vec4 original_colour_0: hint_color;
+uniform vec4 original_colour_1: hint_color;
+uniform vec4 original_colour_2: hint_color;
+uniform vec4 original_colour_3: hint_color;
+uniform vec4 original_colour_4: hint_color;
+uniform vec4 original_colour_5: hint_color;
+uniform vec4 original_colour_6: hint_color;
+uniform vec4 original_colour_7: hint_color;
+
+uniform vec4 new_colour_0: hint_color;
+uniform vec4 new_colour_1: hint_color;
+uniform vec4 new_colour_2: hint_color;
+uniform vec4 new_colour_3: hint_color;
+uniform vec4 new_colour_4: hint_color;
+uniform vec4 new_colour_5: hint_color;
+uniform vec4 new_colour_6: hint_color;
+uniform vec4 new_colour_7: hint_color;
+
+const float precision = 0.1;
+
+vec4 swap_colour(vec4 colour) {
+	// laid out stupidly because GLES2 doesn't support array initialization for probably some very good reason
+	vec4 original_colours[8];
+    original_colours[0] = original_colour_0;
+    original_colours[1] = original_colour_1;
+    original_colours[2] = original_colour_2;
+    original_colours[3] = original_colour_3;
+    original_colours[4] = original_colour_4;
+    original_colours[5] = original_colour_5;
+    original_colours[6] = original_colour_6;
+    original_colours[7] = original_colour_7;
+	
+	vec4 new_colours[8];
+    new_colours[0] = new_colour_0;
+    new_colours[1] = new_colour_1;
+    new_colours[2] = new_colour_2;
+    new_colours[3] = new_colour_3;
+    new_colours[4] = new_colour_4;
+    new_colours[5] = new_colour_5;
+    new_colours[6] = new_colour_6;
+    new_colours[7] = new_colour_7;
+	
+	if (swap){
+		for (int i = 0; i < 8; i++) {
+			if (distance(colour, original_colours[i]) < precision) {
+				return new_colours[i];
+			}
+		}
+	}
+	
+	return colour;
+}
+
+
+void fragment() {
+	COLOR = swap_colour(texture(TEXTURE,UV));
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/swap = false
+shader_param/original_colour_0 = Color( 0.0509804, 0.164706, 0.270588, 1 )
+shader_param/original_colour_1 = Color( 0.12549, 0.235294, 0.337255, 1 )
+shader_param/original_colour_2 = Color( 0.329412, 0.305882, 0.407843, 1 )
+shader_param/original_colour_3 = Color( 0.552941, 0.411765, 0.478431, 1 )
+shader_param/original_colour_4 = Color( 0.815686, 0.505882, 0.34902, 1 )
+shader_param/original_colour_5 = Color( 1, 0.666667, 0.368627, 1 )
+shader_param/original_colour_6 = Color( 1, 0.831373, 0.639216, 1 )
+shader_param/original_colour_7 = Color( 1, 0.92549, 0.839216, 1 )
+shader_param/new_colour_0 = Color( 0.270588, 0.0509804, 0.129412, 1 )
+shader_param/new_colour_1 = Color( 0.337255, 0.12549, 0.14902, 1 )
+shader_param/new_colour_2 = Color( 0.407843, 0.333333, 0.305882, 1 )
+shader_param/new_colour_3 = Color( 0.552941, 0.45098, 0.411765, 1 )
+shader_param/new_colour_4 = Color( 0.345098, 0.815686, 0.486275, 1 )
+shader_param/new_colour_5 = Color( 0.372549, 1, 0.384314, 1 )
+shader_param/new_colour_6 = Color( 0.74902, 1, 0.639216, 1 )
+shader_param/new_colour_7 = Color( 0.901961, 1, 0.839216, 1 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 32 ), ExtResource( 28 ), ExtResource( 38 ), ExtResource( 47 ), ExtResource( 44 ), ExtResource( 18 ), ExtResource( 48 ), ExtResource( 63 ), ExtResource( 60 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 13 ), ExtResource( 66 ), ExtResource( 59 ), ExtResource( 65 ), ExtResource( 62 ), ExtResource( 61 ), ExtResource( 64 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 26.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 36 ), ExtResource( 3 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 43 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 26.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 6 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 2 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
+"loop": false,
+"name": "Punch",
+"speed": 26.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+position = Vector2( -8, 0 )
+script = ExtResource( 73 )
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+position = Vector2( 8, -11 )
+shape = SubResource( 2 )
+
+[node name="FeetShape" type="CollisionShape2D" parent="."]
+position = Vector2( 8.5, -1 )
+shape = SubResource( 3 )
+
+[node name="CharacterSprite" type="AnimatedSprite" parent="."]
+material = SubResource( 5 )
+position = Vector2( -13, -32 )
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 17
+playing = true
+centered = false
+
+[node name="RandomizeTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="timeout" from="RandomizeTimer" to="." method="_on_Randomize_timeout"]

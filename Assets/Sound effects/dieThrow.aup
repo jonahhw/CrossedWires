@@ -1,0 +1,82 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="dieThrow_data" version="1.3.0" audacityversion="2.4.1" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="2752.6925283235" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="MP3GAIN_MINMAX" value="138,160"/>
+		<tag name="MP3GAIN_UNDO" value="+001,+001,N"/>
+		<tag name="TITLE" value="Roll of the dice"/>
+		<tag name="ARTIST" value="Jonah (based on assets from Kenny)"/>
+	</tags>
+	<wavetrack name="Kenny-dieThrow1" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="27700">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f5a7.au" len="2467" min="-0.795929" max="0.612946" rms="0.086987"/>
+				</waveblock>
+				<waveblock start="2467">
+					<simpleblockfile filename="eff1f0be.au" len="25233" min="-0.217407" max="0.164886" rms="0.016363"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Kenny-dieThrow1" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="27700">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f90b.au" len="2467" min="-0.41626" max="0.316803" rms="0.052445"/>
+				</waveblock>
+				<waveblock start="2467">
+					<simpleblockfile filename="eff1f4df.au" len="25233" min="-0.15155" max="0.109772" rms="0.013465"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Kenny-dieThrow2" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="17508">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fba9.au" len="1698" min="-0.15686" max="0.113037" rms="0.031885"/>
+				</waveblock>
+				<waveblock start="1698">
+					<simpleblockfile filename="eff1f0a4.au" len="15810" min="-0.264862" max="0.207855" rms="0.019855"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Kenny-dieThrow2" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="17508">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fda0.au" len="1698" min="-0.109253" max="0.081604" rms="0.019528"/>
+				</waveblock>
+				<waveblock start="1698">
+					<simpleblockfile filename="eff1ff87.au" len="15810" min="-0.146667" max="0.148834" rms="0.020736"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Kenny-dieThrow3" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="22970">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fe18.au" len="22970" min="-0.828552" max="0.67865" rms="0.053787"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Kenny-dieThrow3" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="22970">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1ffae.au" len="22970" min="-0.45343" max="0.405548" rms="0.05036"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
