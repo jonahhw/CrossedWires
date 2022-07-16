@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Assets/mech-animation/mech-punch-0056.png" type="Texture" id=1]
 [ext_resource path="res://Assets/mech-animation/mech-punch-0054.png" type="Texture" id=2]
@@ -73,6 +73,13 @@
 [ext_resource path="res://Assets/mech-animation/mech-walk-0046.png" type="Texture" id=71]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0047.png" type="Texture" id=72]
 [ext_resource path="res://Mech.gd" type="Script" id=73]
+[ext_resource path="res://Assets/shield.png" type="Texture" id=74]
+[ext_resource path="res://Assets/Sound effects/charge.wav" type="AudioStream" id=75]
+[ext_resource path="res://Assets/Sound effects/dieThrow.ogg" type="AudioStream" id=76]
+[ext_resource path="res://Assets/Sound effects/blast.wav" type="AudioStream" id=77]
+[ext_resource path="res://Assets/Sound effects/punch.wav" type="AudioStream" id=78]
+[ext_resource path="res://Assets/Sound effects/shield.wav" type="AudioStream" id=79]
+[ext_resource path="res://Assets/Sound effects/bolt.wav" type="AudioStream" id=80]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
@@ -198,15 +205,44 @@ shape = SubResource( 3 )
 
 [node name="CharacterSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 5 )
-position = Vector2( -13, -32 )
+position = Vector2( -5, -32 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 17
+frame = 5
 playing = true
 centered = false
+
+[node name="Sprite" type="Sprite" parent="CharacterSprite"]
+visible = false
+use_parent_material = true
+position = Vector2( 24, 20 )
+texture = ExtResource( 74 )
 
 [node name="RandomizeTimer" type="Timer" parent="."]
 wait_time = 7.0
 one_shot = true
+autostart = true
+
+[node name="DicePlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 8, 0 )
+stream = ExtResource( 76 )
+
+[node name="PunchPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 78 )
+
+[node name="BlastPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 77 )
+
+[node name="BlockPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 8, 0 )
+stream = ExtResource( 79 )
+
+[node name="ChargePlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 8, 0 )
+stream = ExtResource( 75 )
+
+[node name="BoltPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 8, 0 )
+stream = ExtResource( 80 )
 
 [connection signal="timeout" from="RandomizeTimer" to="." method="_on_Randomize_timeout"]
