@@ -191,7 +191,7 @@ animations = [ {
 "speed": 26.0
 } ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Mech" type="KinematicBody2D"]
 position = Vector2( -8, 0 )
 script = ExtResource( 73 )
 
@@ -208,7 +208,7 @@ material = SubResource( 5 )
 position = Vector2( -5, -32 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 5
+frame = 2
 playing = true
 centered = false
 
