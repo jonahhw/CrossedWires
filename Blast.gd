@@ -24,12 +24,10 @@ func destroy(reason: String = "") -> void:
 
 func _on_Blast_body_entered(body: Node) -> void:
 	# maybe some impact sound effect
-	print(body)
 	destroy()
 
 
 func _on_Blast_area_entered(area: Area2D) -> void:
-	print(area.name)
 	if area.name == "ShieldArea":
 		direction = !direction;
 		flipDirection()

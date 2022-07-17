@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/monochrome.png" type="Texture" id=1]
 [ext_resource path="res://HealthLabel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Saint11-Monocons.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Game over.png" type="Texture" id=4]
 [ext_resource path="res://Arena.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Battle_Theme.ogg" type="AudioStream" id=6]
 
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 16, 15, 0, 15, 0, 0, 16, 0 )
@@ -174,5 +175,10 @@ margin_bottom = 78.0
 custom_colors/font_color = Color( 0.72549, 0.72549, 0.72549, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "Again"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="gameOver/Button" to="." method="_on_Restart_Button_pressed"]

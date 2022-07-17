@@ -7,3 +7,5 @@ mech-animation - uses a pallette by Luis Miguel Maldonado (https://lospec.com/pa
 monochrome.png - made by Kenny (https://kenney.nl/assets/bit-pack)
 
 Monocons.ttf - made by Saint11 (https://saint11.org/blog/fonts/)
+
+Battle theme made in QTractor using teh synths Vital, Helm, and Odin along with the VoPa plugin
