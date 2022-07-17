@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Assets/mech-animation/mech-punch-0056.png" type="Texture" id=1]
 [ext_resource path="res://Assets/mech-animation/mech-punch-0054.png" type="Texture" id=2]
@@ -80,6 +80,7 @@
 [ext_resource path="res://Assets/Sound effects/punch.wav" type="AudioStream" id=78]
 [ext_resource path="res://Assets/Sound effects/shield.wav" type="AudioStream" id=79]
 [ext_resource path="res://Assets/Sound effects/bolt.wav" type="AudioStream" id=80]
+[ext_resource path="res://Assets/Sound effects/ding.wav" type="AudioStream" id=81]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
@@ -217,7 +218,7 @@ frames = SubResource( 1 )
 animation = "Idle"
 centered = false
 
-[node name="Sprite" type="Sprite" parent="CharacterSprite"]
+[node name="Shield" type="Sprite" parent="CharacterSprite"]
 visible = false
 use_parent_material = true
 position = Vector2( 24, 20 )
@@ -238,9 +239,12 @@ stream = ExtResource( 78 )
 [node name="BlastPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 77 )
 
-[node name="BlockPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="ShieldPlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 8, 0 )
 stream = ExtResource( 79 )
+
+[node name="DingPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 81 )
 
 [node name="ChargePlayer" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 8, 0 )

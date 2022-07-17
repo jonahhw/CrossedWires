@@ -8,7 +8,6 @@ var velocity: Vector2 = Vector2(0,0);
 export var accelerationX: float = 10;
 export var maxSpeedX: float = 40;
 export var friction: float = 10;
-var speedCoeff: float = 1;					# for things like freezing the player and slowing them down
 
 export var jumpSpeed = 400;
 export var coyoteTime = 0.1;				# extra time for jumps to be allowed if not touching ground
@@ -24,6 +23,8 @@ func gravSpeedCoeff() -> float:
 		return 1.0;
 
 var actionCooldown: float = 0;
+
+var shieldActive: bool = false;
 
 enum InstantAction {
 	punch,
@@ -79,12 +80,20 @@ func randomizeActions() -> void:
 func _process(delta: float) -> void:
 	if actionCooldown <= 0:
 		if abs(velocity.x) > 1:
+			$CharacterSprite.speed_scale = abs(velocity.x)/35
 			if is_on_floor():
 				$CharacterSprite.play("Walk");
 			else:
 				$CharacterSprite.playing = false;
+			if velocity.x < 0:
+				$CharacterSprite.flip_h = true;
+			else:
+				$CharacterSprite.flip_h = false;
 		else:
 			$CharacterSprite.play("Idle");
+			$CharacterSprite.speed_scale = 1;
+	elif ($CharacterSprite.get_animation() != "Punch"):
+		$CharacterSprite.playing = false;
 
 func _physics_process(delta: float) -> void:
 	advanceCooldowns(delta);
@@ -94,7 +103,7 @@ func _physics_process(delta: float) -> void:
 		 velocity.x -= delta*sign(velocity.x)*friction;
 	velocity.y += delta*gravSpeedCoeff()*gravitySpeed;
 	if !(actionCooldown > 0):
-		velocity.x += delta*speedCoeff*accelerationX*horizontalAxis();
+		velocity.x += delta*accelerationX*horizontalAxis();
 		if ((isJumpPressed() && (jumpBufferTimer > 0)) && (is_on_floor() || (coyoteTimer > 0))):
 			velocity.y = -jumpSpeed;
 			coyoteTimer = 0;
@@ -146,22 +155,28 @@ func blast() -> void:
 func block() -> void:
 	if (actionCooldown > 0):
 		return
-	pass
+	actionCooldown = 1000;
+	$ShieldPlayer.play()
+	$CharacterSprite/Shield.visible = true;
+	shieldActive = true;
 	
 func bolt() -> void:
 	if (actionCooldown > 0):
 		return
 	$CharacterSprite.speed_scale = 0.5;
 	$CharacterSprite.play("Punch", true);	# reversed punch animation
+	$CharacterSprite.frame = 12;
 	$ChargePlayer.play();
 	actionCooldown = 1;
 	yield($ChargePlayer, "finished");
 	$BoltPlayer.play();
 	# launch bolt
-	actionHoldRelease()
 
 func actionHoldRelease() -> void:
-	$CharacterSprite.speed_scale = 1;
+	actionCooldown = 0;
+	$ChargePlayer.stop();
+	$CharacterSprite/Shield.visible = false;
+	shieldActive = false;
 	
 
 func _on_Randomize_timeout() -> void:
