@@ -221,8 +221,9 @@ centered = false
 [node name="Shield" type="Sprite" parent="CharacterSprite"]
 visible = false
 use_parent_material = true
-position = Vector2( 24, 20 )
+position = Vector2( 16, 20 )
 texture = ExtResource( 74 )
+offset = Vector2( 8, 0 )
 
 [node name="RandomizeTimer" type="Timer" parent="."]
 wait_time = 7.0

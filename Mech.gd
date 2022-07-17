@@ -144,13 +144,19 @@ func punch() -> void:
 	$CharacterSprite.play("Punch");
 	$PunchPlayer.play()
 	actionCooldown = 0.5;
-	yield($CharacterSprite, "animation_finished")
+	# yield($CharacterSprite, "animation_finished")
 	
 
 func blast() -> void:
 	if (actionCooldown > 0):
 		return
 	pass
+	$CharacterSprite.set_frame(4)
+	$CharacterSprite.play("Punch");
+	$BlastPlayer.play()
+	actionCooldown = 0.3;
+	# yield($CharacterSprite, "animation_finished")
+	
 	
 func block() -> void:
 	if (actionCooldown > 0):
@@ -158,6 +164,12 @@ func block() -> void:
 	actionCooldown = 1000;
 	$ShieldPlayer.play()
 	$CharacterSprite/Shield.visible = true;
+	if $CharacterSprite.flip_h:
+		$CharacterSprite/Shield.flip_h = true;
+		$CharacterSprite/Shield.offset.x = -8;
+	else:
+		$CharacterSprite/Shield.flip_h = false;
+		$CharacterSprite/Shield.offset.x = 8;
 	shieldActive = true;
 	
 func bolt() -> void:
