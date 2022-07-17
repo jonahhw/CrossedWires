@@ -5,3 +5,5 @@ dieThrow.aup - combination of die throw sounds from Kenny (https://kenney.nl/ass
 mech-animation - uses a pallette by Luis Miguel Maldonado (https://lospec.com/palette-list/slso8)
 
 monochrome.png - made by Kenny (https://kenney.nl/assets/bit-pack)
+
+Monocons.ttf - made by Saint11 (https://saint11.org/blog/fonts/)

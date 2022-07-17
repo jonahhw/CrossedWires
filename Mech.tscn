@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://Assets/mech-animation/mech-punch-0056.png" type="Texture" id=1]
 [ext_resource path="res://Assets/mech-animation/mech-punch-0054.png" type="Texture" id=2]
@@ -25,7 +25,6 @@
 [ext_resource path="res://Assets/mech-animation/mech-idle-0004.png" type="Texture" id=23]
 [ext_resource path="res://Assets/mech-animation/mech-idle-0006.png" type="Texture" id=24]
 [ext_resource path="res://Assets/mech-animation/mech-idle-0002.png" type="Texture" id=25]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0060.png" type="Texture" id=26]
 [ext_resource path="res://Assets/mech-animation/mech-punch-0059.png" type="Texture" id=27]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0025.png" type="Texture" id=28]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0033.png" type="Texture" id=29]
@@ -33,7 +32,6 @@
 [ext_resource path="res://Assets/mech-animation/mech-punch-0052.png" type="Texture" id=31]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0024.png" type="Texture" id=32]
 [ext_resource path="res://Assets/mech-animation/mech-idle-0011.png" type="Texture" id=33]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0061.png" type="Texture" id=34]
 [ext_resource path="res://Assets/mech-animation/mech-punch-0049.png" type="Texture" id=35]
 [ext_resource path="res://Assets/mech-animation/mech-idle-0017.png" type="Texture" id=36]
 [ext_resource path="res://Assets/mech-animation/mech-idle-0022.png" type="Texture" id=37]
@@ -48,16 +46,6 @@
 [ext_resource path="res://Assets/mech-animation/mech-punch-0050.png" type="Texture" id=46]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0027.png" type="Texture" id=47]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0030.png" type="Texture" id=48]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0062.png" type="Texture" id=49]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0063.png" type="Texture" id=50]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0064.png" type="Texture" id=51]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0065.png" type="Texture" id=52]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0066.png" type="Texture" id=53]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0067.png" type="Texture" id=54]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0068.png" type="Texture" id=55]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0069.png" type="Texture" id=56]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0070.png" type="Texture" id=57]
-[ext_resource path="res://Assets/mech-animation/mech-punch-0071.png" type="Texture" id=58]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0037.png" type="Texture" id=59]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0032.png" type="Texture" id=60]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0040.png" type="Texture" id=61]
@@ -181,27 +169,26 @@ animations = [ {
 "name": "Walk",
 "speed": 26.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 6 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 2 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 27 ), ExtResource( 26 ), ExtResource( 34 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
-"loop": false,
-"name": "Punch",
-"speed": 26.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 10 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 14 ), ExtResource( 24 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 33 ), ExtResource( 21 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 8 ), ExtResource( 36 ), ExtResource( 3 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 37 ), ExtResource( 43 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 26.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 35 ), ExtResource( 46 ), ExtResource( 6 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 2 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "Punch",
+"speed": 26.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1.5, 12 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 6, 2.5 )
 
 [node name="Mech" type="KinematicBody2D"]
 position = Vector2( -8, 0 )
 script = ExtResource( 73 )
-accelerationX = 1000.0
-maxSpeedX = 150.0
-friction = 600.0
-jumpSpeed = 300
-coyoteTime = 0.05
-gravitySpeed = 2000
-maxSpeedY = 1000
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2( 8, -11 )
@@ -211,9 +198,19 @@ shape = SubResource( 2 )
 position = Vector2( 8.5, -1 )
 shape = SubResource( 3 )
 
+[node name="HurtArea" type="Area2D" parent="."]
+
+[node name="BodyShape" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2( 8, -11 )
+shape = SubResource( 2 )
+
+[node name="FeetShape" type="CollisionShape2D" parent="HurtArea"]
+position = Vector2( 8.5, -1 )
+shape = SubResource( 3 )
+
 [node name="CharacterSprite" type="AnimatedSprite" parent="."]
 material = SubResource( 5 )
-position = Vector2( -5, -32 )
+position = Vector2( -4, -32 )
 frames = SubResource( 1 )
 animation = "Idle"
 centered = false
@@ -224,6 +221,20 @@ use_parent_material = true
 position = Vector2( 16, 20 )
 texture = ExtResource( 74 )
 offset = Vector2( 8, 0 )
+
+[node name="ShieldArea" type="Area2D" parent="."]
+
+[node name="ShieldShape" type="CollisionShape2D" parent="ShieldArea"]
+position = Vector2( 18, -12 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="PunchArea" type="Area2D" parent="."]
+
+[node name="PunchShape" type="CollisionShape2D" parent="PunchArea"]
+position = Vector2( 20, -13 )
+shape = SubResource( 6 )
+disabled = true
 
 [node name="RandomizeTimer" type="Timer" parent="."]
 wait_time = 7.0
@@ -255,4 +266,6 @@ stream = ExtResource( 75 )
 position = Vector2( 8, 0 )
 stream = ExtResource( 80 )
 
+[connection signal="area_entered" from="HurtArea" to="." method="_on_HurtArea_area_entered"]
+[connection signal="area_entered" from="ShieldArea" to="." method="_on_ShieldArea_area_entered"]
 [connection signal="timeout" from="RandomizeTimer" to="." method="_on_Randomize_timeout"]

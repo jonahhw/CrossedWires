@@ -5,22 +5,24 @@ var health: float = 100;
 var moveBuffer: Vector2 = Vector2(0, 0);
 var velocity: Vector2 = Vector2(0,0);
 
-export var accelerationX: float = 10;
-export var maxSpeedX: float = 40;
-export var friction: float = 10;
+export var accelerationX: float = 1000;
+export var maxSpeedX: float = 150;
+export var friction: float = 600;
 
-export var jumpSpeed = 400;
-export var coyoteTime = 0.1;				# extra time for jumps to be allowed if not touching ground
+export var jumpSpeed = 300;
+export var coyoteTime = 0.05;				# extra time for jumps to be allowed if not touching ground
 var coyoteTimer = 0;						# keeps track of time since fallen off a ledge
 export var jumpBufferTime = 0.1;					# jump buffering
 var jumpBufferTimer = 0;							# keeps track of time since pressing the jump button for jump buffering
-export var gravitySpeed = 50;
-export var maxSpeedY = 400;
+export var gravitySpeed = 2000;
+export var maxSpeedY = 1000;
 func gravSpeedCoeff() -> float:
 	if isJumpPressed():
 		return 0.4;
 	else:
 		return 1.0;
+
+# TODO: make a horizontal flip variable/function that automatically moves the shield, & punch and flips everything that needs to be flipped
 
 var actionCooldown: float = 0;
 
@@ -37,25 +39,18 @@ enum HoldAction {
 var instantAction;
 var holdAction;
 
+const BlastScene = preload("res://Blast.tscn");
+const BoltScene = preload("res://Bolt.tscn");
+
 signal blast_launched;
 signal bolt_started;
+signal damaged(health_remaining);
 
 # input functions - to be overridden
 func isJumpPressed() -> bool:
-	return Input.is_action_pressed("p1Jump");
-	
+	return false;
 func horizontalAxis() -> float:
-	return Input.get_axis("p1Left", "p1Right");
-# TODO: move to an inheriting player class along with all other mentions of input
-func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("p1InstAct")):
-		actionInst()
-	if (event.is_action_pressed("p1HoldAct")):
-		actionHold()
-	if (event.is_action_released("p1HoldAct")):
-		actionHoldRelease()
-	if (event.is_action_pressed("p1Jump")):
-		onJumpPressed()
+	return 0.0;
 
 func onJumpPressed() -> void:
 	jumpBufferTimer = jumpBufferTime;
@@ -87,8 +82,10 @@ func _process(delta: float) -> void:
 				$CharacterSprite.playing = false;
 			if velocity.x < 0:
 				$CharacterSprite.flip_h = true;
+				$CharacterSprite.offset.x = -8;
 			else:
 				$CharacterSprite.flip_h = false;
+				$CharacterSprite.offset.x = 0;
 		else:
 			$CharacterSprite.play("Idle");
 			$CharacterSprite.speed_scale = 1;
@@ -142,20 +139,33 @@ func punch() -> void:
 		return
 	$CharacterSprite.set_frame(0)
 	$CharacterSprite.play("Punch");
+	$PunchArea/PunchShape.disabled = false;
+	if $CharacterSprite.flip_h:
+		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(-5, -13));
+	else:
+		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(20, -13));
 	$PunchPlayer.play()
 	actionCooldown = 0.5;
-	# yield($CharacterSprite, "animation_finished")
-	
+	yield(get_tree().create_timer(0.1), "timeout");
+	$PunchArea/PunchShape.disabled = true;
 
 func blast() -> void:
 	if (actionCooldown > 0):
 		return
 	pass
+	# stupid thing that wouldn't have to be here if I refactored properly
+	if $CharacterSprite.flip_h:
+		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(-5, -13));
+	else:
+		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(20, -13));
 	$CharacterSprite.set_frame(4)
 	$CharacterSprite.play("Punch");
 	$BlastPlayer.play()
 	actionCooldown = 0.3;
-	# yield($CharacterSprite, "animation_finished")
+	var thisBlast = BlastScene.instance();
+	thisBlast.direction = $CharacterSprite.flip_h;
+	thisBlast.position = $PunchArea/PunchShape.position;
+	add_child(thisBlast);
 	
 	
 func block() -> void:
@@ -164,12 +174,15 @@ func block() -> void:
 	actionCooldown = 1000;
 	$ShieldPlayer.play()
 	$CharacterSprite/Shield.visible = true;
+	$ShieldArea/ShieldShape.disabled = false;
 	if $CharacterSprite.flip_h:
 		$CharacterSprite/Shield.flip_h = true;
-		$CharacterSprite/Shield.offset.x = -8;
+		$CharacterSprite/Shield.offset.x = -15;
+		$ShieldArea/ShieldShape.transform = Transform2D(0, Vector2(-3, -12));
 	else:
 		$CharacterSprite/Shield.flip_h = false;
 		$CharacterSprite/Shield.offset.x = 8;
+		$ShieldArea/ShieldShape.transform = Transform2D(0, Vector2(20, -12));
 	shieldActive = true;
 	
 func bolt() -> void:
@@ -177,17 +190,20 @@ func bolt() -> void:
 		return
 	$CharacterSprite.speed_scale = 0.5;
 	$CharacterSprite.play("Punch", true);	# reversed punch animation
-	$CharacterSprite.frame = 12;
+	$CharacterSprite.frame = 11;
 	$ChargePlayer.play();
 	actionCooldown = 1;
 	yield($ChargePlayer, "finished");
 	$BoltPlayer.play();
-	# launch bolt
+	var thisBolt = BoltScene.instance();
+	thisBolt.position = Vector2(-144,-12) if $CharacterSprite.flip_h else Vector2(165,-12);
+	add_child(thisBolt);
 
 func actionHoldRelease() -> void:
 	actionCooldown = 0;
 	$ChargePlayer.stop();
 	$CharacterSprite/Shield.visible = false;
+	$ShieldArea/ShieldShape.disabled = true;
 	shieldActive = false;
 	
 
@@ -195,3 +211,29 @@ func _on_Randomize_timeout() -> void:
 	randomizeActions();
 	$RandomizeTimer.wait_time = rand_range(5, 8);
 	$RandomizeTimer.start();
+
+
+func _on_HurtArea_area_entered(area: Area2D) -> void:
+	var collidingBody = area.name;	# My apologies to the programming gods for using string comparisons.
+	# In my defense, we have 4 hours to submit and I've hardly started on the music.
+	if collidingBody == "Blast":
+		damage(0 if shieldActive else 10);
+	elif collidingBody == "Bolt":
+		damage(10 if shieldActive else 35)
+	elif collidingBody == "PunchArea":
+		damage(5 if shieldActive else 15)
+	
+func damage(amount: float):
+	health -= amount;
+	emit_signal("damaged", health)
+
+
+
+func _on_ShieldArea_area_entered(area: Area2D) -> void:
+	var collidingBody = area.name;
+	if collidingBody == "Blast":
+		$DingPlayer.play();
+	elif collidingBody == "Bolt":
+		pass
+	elif collidingBody == "PunchArea":
+		$DingPlayer.play();
