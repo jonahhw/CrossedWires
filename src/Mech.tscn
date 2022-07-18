@@ -60,7 +60,7 @@
 [ext_resource path="res://Assets/mech-animation/mech-walk-0045.png" type="Texture" id=70]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0046.png" type="Texture" id=71]
 [ext_resource path="res://Assets/mech-animation/mech-walk-0047.png" type="Texture" id=72]
-[ext_resource path="res://Mech.gd" type="Script" id=73]
+[ext_resource path="res://src/Mech.gd" type="Script" id=73]
 [ext_resource path="res://Assets/shield.png" type="Texture" id=74]
 [ext_resource path="res://Assets/Sound effects/charge.wav" type="AudioStream" id=75]
 [ext_resource path="res://Assets/Sound effects/dieThrow.ogg" type="AudioStream" id=76]

@@ -1,4 +1,4 @@
-extends "res://Mech.gd"
+extends "res://src/Mech.gd"
 
 # overrides of the functions in the base class
 func isJumpPressed() -> bool:

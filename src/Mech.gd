@@ -39,8 +39,8 @@ enum HoldAction {
 var instantAction;
 var holdAction;
 
-const BlastScene = preload("res://Blast.tscn");
-const BoltScene = preload("res://Bolt.tscn");
+const BlastScene = preload("res://src/Blast.tscn");
+const BoltScene = preload("res://src/Bolt.tscn");
 
 signal blast_launched;
 signal bolt_started;
