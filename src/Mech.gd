@@ -169,7 +169,7 @@ func blast() -> void:
 	$CharacterSprite.set_frame(4)
 	$CharacterSprite.play("Punch");
 	$BlastPlayer.play()
-	actionCooldown = 0.3;
+	actionCooldown = 0.2;
 	var thisBlast = BlastScene.instance();
 	thisBlast.direction = $CharacterSprite.flip_h;
 	thisBlast.position = $PunchArea/PunchShape.position;
@@ -216,12 +216,13 @@ func _on_Randomize_timeout() -> void:
 func _on_HurtArea_area_entered(area: Area2D) -> void:
 	var collidingBody = area.name;	# My apologies to the programming gods for using string comparisons.
 	# In my defense, we have 4 hours to submit and I've hardly started on the music.
+	# TODO remove name-based detection and properly check if the collision area belongs to another mech
 	if collidingBody == "Blast":
-		damage(0 if shieldActive else 10);
+		damage(0 if shieldActive else 5);
 	elif collidingBody == "Bolt":
-		damage(10 if shieldActive else 35)
+		damage(13 if shieldActive else 42)	# TODO check if facing the right direction?
 	elif collidingBody == "PunchArea":
-		damage(5 if shieldActive else 15)
+		damage(2 if shieldActive else 8)	# TODO check if facing the right direction
 	
 func damage(amount: float):
 	health -= amount;
