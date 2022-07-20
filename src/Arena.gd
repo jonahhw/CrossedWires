@@ -1,11 +1,11 @@
 extends Node2D
 
 func p1HealthDepleted(amount: float) -> void:
-	if amount < 0:
+	if amount <= 0:
 		gameOver(2);
 
 func p2HealthDepleted(amount: float) -> void:
-	if amount < 0:
+	if amount <= 0:
 		gameOver(1);
 
 func gameOver(winner: int) -> void:

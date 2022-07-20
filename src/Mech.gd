@@ -9,6 +9,8 @@ export var accelerationX: float = 1000;
 export var maxSpeedX: float = 150;
 export var friction: float = 600;
 
+var facingRight: bool = true;
+
 export var jumpSpeed = 300;
 export var coyoteTime = 0.05;				# extra time for jumps to be allowed if not touching ground
 var coyoteTimer = 0;						# keeps track of time since fallen off a ledge
@@ -81,11 +83,9 @@ func _process(delta: float) -> void:
 			else:
 				$CharacterSprite.playing = false;
 			if velocity.x < 0:
-				$CharacterSprite.flip_h = true;
-				$CharacterSprite.offset.x = -8;
+				faceLeft();
 			else:
-				$CharacterSprite.flip_h = false;
-				$CharacterSprite.offset.x = 0;
+				faceRight();
 		else:
 			$CharacterSprite.play("Idle");
 			$CharacterSprite.speed_scale = 1;
@@ -121,6 +121,23 @@ func advanceCooldowns(delta: float) -> void:
 		actionCooldown -= delta;
 	jumpBufferTimer -= delta;
 
+func faceLeft() -> void:
+	facingRight = false;
+	$CharacterSprite.flip_h = true;
+	$CharacterSprite.offset.x = -8;
+	$PunchArea/PunchShape.transform = Transform2D(0, Vector2(-5, -13));
+	$CharacterSprite/Shield.flip_h = true;
+	$CharacterSprite/Shield.offset.x = -15;
+	$ShieldArea/ShieldShape.transform = Transform2D(0, Vector2(-3, -12));
+	
+func faceRight() -> void:
+	facingRight = true;
+	$CharacterSprite.flip_h = false;
+	$CharacterSprite.offset.x = 0;
+	$PunchArea/PunchShape.transform = Transform2D(0, Vector2(20, -13));
+	$CharacterSprite/Shield.flip_h = false;
+	$CharacterSprite/Shield.offset.x = 8;
+	$ShieldArea/ShieldShape.transform = Transform2D(0, Vector2(20, -12));
 
 func actionHold() -> void:
 	if holdAction == HoldAction.block:
@@ -140,12 +157,8 @@ func punch() -> void:
 	$CharacterSprite.set_frame(0)
 	$CharacterSprite.play("Punch");
 	$PunchArea/PunchShape.disabled = false;
-	if $CharacterSprite.flip_h:
-		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(-5, -13));
-	else:
-		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(20, -13));
 	$PunchPlayer.play()
-	actionCooldown = 0.5;
+	actionCooldown = 0.3;
 	yield(get_tree().create_timer(0.1), "timeout");
 	$PunchArea/PunchShape.disabled = true;
 
@@ -153,11 +166,6 @@ func blast() -> void:
 	if (actionCooldown > 0):
 		return
 	pass
-	# stupid thing that wouldn't have to be here if I refactored properly
-	if $CharacterSprite.flip_h:
-		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(-5, -13));
-	else:
-		$PunchArea/PunchShape.transform = Transform2D(0, Vector2(20, -13));
 	$CharacterSprite.set_frame(4)
 	$CharacterSprite.play("Punch");
 	$BlastPlayer.play()
@@ -175,14 +183,6 @@ func block() -> void:
 	$ShieldPlayer.play()
 	$CharacterSprite/Shield.visible = true;
 	$ShieldArea/ShieldShape.disabled = false;
-	if $CharacterSprite.flip_h:
-		$CharacterSprite/Shield.flip_h = true;
-		$CharacterSprite/Shield.offset.x = -15;
-		$ShieldArea/ShieldShape.transform = Transform2D(0, Vector2(-3, -12));
-	else:
-		$CharacterSprite/Shield.flip_h = false;
-		$CharacterSprite/Shield.offset.x = 8;
-		$ShieldArea/ShieldShape.transform = Transform2D(0, Vector2(20, -12));
 	shieldActive = true;
 	
 func bolt() -> void:
@@ -196,7 +196,7 @@ func bolt() -> void:
 	yield($ChargePlayer, "finished");
 	$BoltPlayer.play();
 	var thisBolt = BoltScene.instance();
-	thisBolt.position = Vector2(-144,-12) if $CharacterSprite.flip_h else Vector2(165,-12);
+	thisBolt.position = Vector2(165,-12) if facingRight else Vector2(-144,-12);
 	add_child(thisBolt);
 
 func actionHoldRelease() -> void:
